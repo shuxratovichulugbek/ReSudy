@@ -74,6 +74,9 @@
                         </div>
                 </div>
                 @endforeach
+                            <div class="items-center justify-center mt-6">
+                                {{ $applications->links() }}
+                            </div>
 
                 @else(auth()->user()->role->name == 'client')
                     <div
