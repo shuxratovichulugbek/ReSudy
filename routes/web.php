@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApplicationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,13 @@ Route::get('/', function () {
     return redirect('dashboard');
 })->middleware('auth');
 
+
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $apps=\App\Models\Application::all();
+    return view('dashboard',['applications'=>$apps]);
 })->middleware(['auth'])->name('dashboard');
+
+Route::resource('applications', 'ApplicationController');
 
 require __DIR__.'/auth.php';
