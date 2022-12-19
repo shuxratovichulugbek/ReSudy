@@ -8,7 +8,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    @if(auth()->user()->role->name == 'manager')
+                    @if(auth()->user()->role->name == 'student')
                         Recieved Application
                         <div class="mt-6">
                             @foreach($applications as $application)
@@ -78,7 +78,7 @@
                                 {{ $applications->links() }}
                             </div>
 
-                @else(auth()->user()->role->name == 'client')
+                @else(auth()->user()->role->name == 'teacher')
                     <div
                         class='flex items-center justify-center min-h-screen from-teal-100 via-teal-300 to-teal-500 bg-gradient-to-br'>
                         <div class='w-full max-w-lg px-10 py-8 mx-auto bg-white rounded-lg shadow-xl'>
